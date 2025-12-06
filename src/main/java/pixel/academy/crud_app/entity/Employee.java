@@ -18,7 +18,7 @@ public class Employee {
     private String lastName;
 
     @Column(name="internship")
-    private String internship;
+    private int internship;
 
     @Column(name="function")
     private String function;
@@ -33,7 +33,7 @@ public class Employee {
     public Employee(
             String firstName,
             String lastName,
-            String internship,
+            int internship,
             String function,
             int salary)
     {
@@ -60,11 +60,11 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public String getInternship() {
+    public int getInternship() {
         return internship;
     }
 
-    public void setInternship(String internship) {
+    public void setInternship(int internship) {
         this.internship = internship;
     }
 

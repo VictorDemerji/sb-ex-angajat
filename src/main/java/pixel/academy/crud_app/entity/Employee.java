@@ -8,7 +8,6 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
 
     @Column(name="first_name")
@@ -20,23 +19,20 @@ public class Employee {
     @Column(name="internship")
     private int internship;
 
-    @Column(name="function")
+    // FUNCTION este cuvânt rezervat → neapărat cu backticks
+    @Column(name="`function`")
     private String function;
 
     @Column(name="salary")
-    private int salary;
+    private double salary;
 
-    public Employee() {
+    @Column(name="bonus")
+    private double bonus;
 
-    }
+    public Employee() {}
 
-    public Employee(
-            String firstName,
-            String lastName,
-            int internship,
-            String function,
-            int salary)
-    {
+    public Employee(String firstName, String lastName,
+                    int internship, String function, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.internship = internship;
@@ -44,45 +40,17 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
+    // Getters & Setters
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+    public int getId() { return id; }
+    public String getFirstName() { return firstName; }
+    public String getLastName() { return lastName; }
+    public int getInternship() { return internship; }
+    public String getFunction() { return function; }
+    public double getSalary() { return salary; }
+    public double getBonus() { return bonus; }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getInternship() {
-        return internship;
-    }
-
-    public void setInternship(int internship) {
-        this.internship = internship;
-    }
-
-    public String getFunction() {
-        return function;
-    }
-
-    public void setFunction(String function) {
-        this.function = function;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
+    public void setBonus(double bonus) { this.bonus = bonus; }
 
     @Override
     public String toString() {
@@ -90,9 +58,10 @@ public class Employee {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", internship='" + internship + '\'' +
+                ", internship=" + internship +
                 ", function='" + function + '\'' +
                 ", salary=" + salary +
+                ", bonus=" + bonus +
                 '}';
     }
 }
